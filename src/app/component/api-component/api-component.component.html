@@ -1,0 +1,90 @@
+<div class="container-fluid">
+<div class="row">
+<div class="col-12">
+<app-reusable [paragraph]="'reusable1'" [message]="'Hey Jimmy'"></app-reusable>
+<app-reusable [paragraph]="'reusable2'" [message]="alertMsg"></app-reusable>
+</div>
+<div class="col-12">
+<button class="btn btn-primary mt-4" (click)="changeMsg()">dynamic_message</button>
+</div>
+</div>
+</div>
+
+
+<div class="container-fluid">
+    <p>api-component works!</p>
+
+    <div class="row">
+        <h2 class="col-12">GET Method</h2>
+        <div class="col-12">
+            <button class="btn btn-success mb-3" (click)="getAllUser()">Get Users</button>
+        </div>
+        <div class="col-12">
+            <div class="bg-success p-4">
+                <table class="table table-bordered table-responsive">
+                    <thead class="thead-light">
+                        <tr>
+                            <th>Sr.No</th>
+                            <th>Name</th>
+                            <th>Email</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr *ngFor="let user of userList; index as i">
+                            <td>{{ i + 1 }}</td>
+                            <td>{{ user.name }}</td>
+                            <td>{{ user.email }}</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+
+    <div class="row mt-4">
+        <!-- <h2 class="col-12">POST PUT DELETE Methods</h2> -->
+        <div class="col">
+            <table class="table table-bordered table-responsive">
+                <thead class="thead-light">
+                    <tr>
+                        <th>Sr.No</th>
+                        <th>Name</th>
+                        <th>Email</th>
+                        <th>Status</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr *ngFor="let user of userData; index as i">
+                        <td>{{ i + 1 }}</td>
+                        <td>{{ user.departmentName }}</td>
+                        <td>{{ user.departmentLogo }}</td>
+                        <td class="d-flex flex-column flex-md-row align-items-center">
+                            <button class="btn btn-primary mb-2 mb-md-0" (click)="onEdit(user)">Update</button>
+                            <button class="btn btn-danger mx-md-3" (click)="onDelete(user.departmentId)">Delete</button>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+        <div class="col">
+            <div class="card">
+                <div class="card-header">
+                    Add New Data
+                </div>
+                <div class="card-body">
+                    <form #form="ngForm">
+                    <input id="username" name="username" class="form-control mb-2" [(ngModel)]="sendData.departmentName" type="text" placeholder="Enter name" required minlength="3" #username="ngModel"/>
+                    <div *ngIf="username.invalid && username.touched">
+                        <small *ngIf="username.errors" class="text-danger">Username is required</small>
+                        <small *ngIf="username.errors" class="text-danger">, Min 3 char required</small>
+                    </div>
+                    <input id="email" name="email" class="form-control mb-2" [(ngModel)]="sendData.departmentLogo" type="email" placeholder="Enter email" />
+                    </form>
+                    <button *ngIf="sendData.departmentId === 0" class="btn btn-primary w-100" (click)="onSave()">Submit Data</button>
+                    <button *ngIf="sendData.departmentId !== 0" class="btn btn-warning w-100" (click)="onUpdate()">Update Data</button>
+                    <app-my-button [btnClass]="'btn btn-success w-100 mt-2'" [btnText]="'Reuable_Button'"></app-my-button>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

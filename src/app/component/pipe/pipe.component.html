@@ -1,0 +1,59 @@
+<div class="bg-secondary p-3 rounded text-white">
+    <h1>Pipes in angular</h1>
+    <p>Default pipes and Custom Pipes</p>
+</div>
+<div class="row">
+    <div class="col-3">
+        Before Pipe - {{myVariable}}
+      <br>
+        After Pipe - {{myVariable | uppercase}}
+    </div>
+    <div class="col-3">
+        Before Pipe - {{myVariable}}
+        <br>
+        After Pipe - {{myVariable | lowercase}}
+    </div>
+    <div class="col-3">
+        Before Pipe - {{myTitle}}
+        <br>
+        After Pipe - {{myTitle | titlecase}}
+    </div>
+    <div class="col-3">
+        Before Pipe - {{myDate}}
+        <br>
+        After Pipe - {{myDate | date}}
+        <br>
+    </div>
+</div>
+<div class="row">
+    <div class="col">
+        Before Pipe - {{myDate}}
+        <br>
+        After Pipe - {{myDate | date: 'dd/mm/yyyy'}}
+    </div>
+    <div class="col">
+        Before Pipe - {{myDate}}
+        <br>
+        After Pipe - {{myDate | date: 'dd/MMM/yyyy'}}
+    </div>
+    <div class="col">
+        Before Pipe - {{myObject}}
+        <br>
+        After Pipe - {{myObject | json}}
+    </div>
+    <div class="col">
+        Before Pipe - {{currentTime}}
+        <br>
+        After Pipe - {{currentTime | async }}
+    </div>
+    <div class="col">
+        Before Pipe - {{currentTime}}
+        <br>
+        After Pipe - {{currentTime | async | date: 'hh-mm-ss'}}
+    </div>
+    <div class="col">
+        Before Pipe - {{myObject.age}}
+        <br>
+        After Pipe - {{myObject.age | myPipe}}
+    </div>
+</div>

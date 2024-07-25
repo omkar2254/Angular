@@ -1,0 +1,42 @@
+<div class="container">
+    <div class="bg-secondary p-4 text-white m-2 rounded">
+        <h1>Ng-Template</h1>
+    </div>
+    <div class="row">
+        <div class="col-4 bg-primary p-4 text-white m-3 rounded" *ngIf="isShow; else isHide">
+            <h3>{{userName}}</h3>
+        </div>
+        <!-- ng-template is a reusable code -->
+        <ng-template #isHide>
+            <div class="col-4 bg-secondary p-4 text-white m-3 rounded">
+                <h3>User not found</h3>
+            </div>
+        </ng-template>
+    </div>
+    <div class="row">
+        <div class="col-4">
+        <div class="d-flex justify-content-center align-items-center">
+        <button class="btn btn-success mx-3" (click)="onShow()">Show</button>
+        <button class="btn btn-primary" (click)="onHide()">Hide</button>
+        </div>
+        </div>
+    </div>
+    <div class="row">
+        <!-- passing a dynamic template -->
+        <div class="col-4">
+            <div class="d-flex justify-content-center align-items-center">
+                <ng-template #dynamicTemplate>
+                    <p>Hi from para</p>
+                </ng-template>
+            </div>
+        </div>
+        <div class="col-4">
+        <div class="bg-success d-flex justify-content-center align-items-center" #dynamicContainer>
+           
+        </div>
+        <div>
+            <button class="btn btn-primary" (click)="loadTemplate()">Load Template</button>
+         </div>
+        </div>
+    </div>
+</div>

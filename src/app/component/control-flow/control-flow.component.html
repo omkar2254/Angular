@@ -1,0 +1,145 @@
+<div class="container-fluid">
+    <div class="p-3">
+    <div class="bg-secondary p-3 text-white rounded">
+    <h1>Control flow Statements</h1>
+    <p>Topics - if, else, else if, for, switch</p>
+    </div>
+    <div class="row gap-2 p-3">
+        @if(isDivVisible){
+            <div class="col bg-success p-3">
+                Div 1
+            </div>
+        }
+        @if(isDivToggle){
+            <div class="col bg-warning p-3">
+                Div 2 warning
+            </div>
+        }@else {
+            <div class="col bg-primary p-3">
+                Div 2.1 primary
+            </div>
+        }
+        @if(num1 == num2){
+            <div class="col bg-primary p-3">
+                Div 3
+            </div>
+        }@else {
+            <div class="col bg-warning p-3">
+                Div changed
+            </div>
+        }
+        <div class="col bg-secondary p-3">
+            <ul>
+                @if(selectedStatus == 'Active'){
+                    <li>Active</li>
+                }@else if(selectedStatus == 'De-Active'){
+                    <li>De-Active</li>
+                }@else if (selectedStatus == 'Pending'){
+                    <li>Pending</li>
+                }@else {
+                    <li>Select Status</li>
+                }
+            </ul>
+        </div>
+    </div>
+    <div class="row gap-2 p-3">
+        <div class="col">
+            <button class="btn btn-primary p-1 mx-3" (click)="isShow()">Show</button>
+            <button class="btn btn-danger p-1 mx-3" (click)="isHide()">Hide</button>
+        </div>
+        <div class="col text-center">
+            <button class="btn btn-success p-1" (click)="isToggle()">Div Toggler</button>
+        </div>
+        <div class="col text-center">
+            <input type="text" [(ngModel)]="num1" placeholder="Num1"/>
+            <input type="text" [(ngModel)]="num2" placeholder="Num2"/>
+        </div>
+        <div class="col">
+           <select [(ngModel)]="selectedStatus">
+            <option value="">Select Status</option>
+            <option value="Active">Active</option>
+            <option value="De-Active">De-Active</option>
+            <option value="Pending">Pending</option>
+           </select>
+        </div>
+    </div>
+</div>
+<div>
+
+<div calss="container-fluid">
+<div class="p-3">
+<div class="bg-secondary p-3 text-white">
+    <h1>for and switch</h1>
+</div>
+<div class="row">
+    <div class="col">
+        <ul>
+            @for(item of myCities; track $index){
+                <li>{{item}}</li>
+            }
+        </ul>
+    </div>
+    <div class="col">
+        <select>
+            @for(item of myCities; track $index){
+                <option>{{item}}</option>
+            }
+        </select>
+    </div>
+    <div class="col">
+        <table class="table table-bordered">
+            <thead>
+                <tr>
+                    <td>ID</td>
+                    <td>Name</td>
+                    <td>Marks</td>
+                    <td>Status</td>
+                </tr>
+            </thead>
+            <tbody>
+                    @for(data of myArray; track $index){
+                       <tr>
+                        <td>{{data.id}}</td>
+                        <td>{{data.name}}</td>
+                        <td>{{data.marks}}</td>
+                        <td>{{data.isActive}}</td>
+                       </tr>
+                    }
+            </tbody>
+        </table>
+    </div>
+    <div class="col p-3">
+        <input type="text" placeholder="Enter number" [(ngModel)]="dayNumber"/>
+        Day Name is:
+        @switch (dayNumber) {
+            @case('1'){
+                <span>Monday</span>
+            }
+            @case('2'){
+                <span>Tuesday</span>
+            }
+            @case('3'){
+                <span>Wednsday</span>
+            }
+            @case('4'){
+                <span>Thursday</span>
+            }
+            @case('5'){
+                <span>Friday</span>
+            }
+            @case('6'){
+                <span>Saturday</span>
+            }
+            @case('7'){
+                <span>Sunday</span>
+            }
+            @default {
+                <span>Wrong Number</span>
+            }
+        }
+    </div>
+</div>
+</div>
+</div>
+</div>
+</div>

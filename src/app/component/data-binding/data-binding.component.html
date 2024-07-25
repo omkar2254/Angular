@@ -1,0 +1,54 @@
+<p>data-binding works!</p>
+<div class="row">
+    <div class="col-4">
+        One way data binding from .ts ==> .html
+    </div>
+    <div class="col-4">
+
+    </div>
+    <div class="col-4">
+
+    </div>
+</div>
+<div class="row gap-4">
+    <div class="col-4 bg-success">
+        interpolation
+        <div class="row">
+            <div class="col-4">
+                <!-- interpolation or one way binding -->
+                {{myString}}
+            </div>
+            <input type="number" value="{{myNumber}}" placeholder="Enter a number"/>
+            <input type="{{inputType}}"/>
+        </div>
+    </div>
+    <div class="col-4 bg-primary">
+        Property binding
+        <div class="row">
+            <div class="col-4">
+                {{myPropertyString}}
+            </div>
+            <input type="number" [value]="myNumber" placeholder="Enter a number"/>
+            <input type="text" [value]="myString" placeholder="Enter a string"/>
+            <input type="text" [value]="myVaru" placeholder="Enter varu"/>
+        </div>
+    </div>
+    <div class="col-4 me-3">
+        <button class="btn btn-success" (click)="showAlert('Welcome to Angular 18')">Show Alert</button>
+        <button class="btn btn-warning" (click)="changeString('React Js')">Change Course</button>
+        <button class="btn btn-secondary" (click)="navigateToDirective()">Go to structural directive</button>
+        <button class="btn btn-primary" (click)="changeVaru()">Change varu</button>
+    </div>
+    <div class="col-4">
+        <!-- ng model basically for two way binding -->
+        <input type="text" [(ngModel)]="myString"/> - {{myString}}
+        <input type="number" [(ngModel)]="myNumber"/> - {{myNumber}}
+        <select [(ngModel)] = "stateName">
+            <option value="Maharashtra">Maharashtra</option>
+            <option value="Goa">Goa</option>
+            <option value="AndhraPradesh">AndhraPradesh</option>
+            <option value="Karnataka">Karnataka</option>
+        </select>
+        <h1>{{firstName()}}</h1>
+    </div>
+</div>
